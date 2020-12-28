@@ -1,4 +1,5 @@
 from src.GraphInterface import GraphInterface
+from Edge import Edge
 
 
 class DiGraph(GraphInterface):
@@ -17,8 +18,7 @@ class DiGraph(GraphInterface):
         return len(self.Edges)
 
     def get_all_v(self) -> dict:
-        """return a dictionary of all the nodes in the Graph, each node is represented using apair  (key, node_data)
-        """
+        return self.Graph
 
     def all_in_edges_of_node(self, id1: int) -> dict:
         """return a dictionary of all the nodes connected to (into) node_id ,
