@@ -9,4 +9,9 @@ if __name__ == '__main__':
     graph.add_node(3, (4, 5, 6))
     graph.add_node(4, (5, 6, 7))
 
+    print(graph.add_edge(1, 2, 3))
+    print(graph.add_edge(3, 2, 4))
+    print(graph.add_edge(1, 4, 6))
+    print(graph.add_edge(1, 2, 3))
+
     print(graph.e_size())

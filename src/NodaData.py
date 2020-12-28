@@ -32,3 +32,6 @@ class NodeData:
                self.Tag == other.Tag and \
                self.Weight == other.Weight and \
                self.Pos == other.Pos
+
+    def __repr__(self):
+        return "Key = " + str(self.Key) + " Pos = " + str(self.Pos)

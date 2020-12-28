@@ -5,6 +5,8 @@ from NodaData import NodeData
 graph: dict = {}
 edges: dict = {}
 parents: dict = {}
+edgeSize: int = 0
+MC: int = 0
 
 
 class DiGraph(GraphInterface):
@@ -13,17 +15,17 @@ class DiGraph(GraphInterface):
         global graph
         global edges
         global parents
+        global edgeSize
+        global MC
         self.Graph = graph
         self.Edges = edges
         self.Parents = parents
-        self.MC = 0
-        self.EdgeSize = 0
 
     def v_size(self) -> int:
         return len(self.Graph)
 
     def e_size(self) -> int:
-        return len(self.Edges)
+        return edgeSize
 
     def get_all_v(self) -> dict:
         return self.Graph.values()
@@ -58,6 +60,23 @@ class DiGraph(GraphInterface):
         raise NotImplementedError
 
     def add_edge(self, id1: int, id2: int, weight: float) -> bool:
+        global MC
+        global edgeSize
+        global edges
+
+        if id1 not in graph.keys() or id2 not in graph.keys():
+            return False
+        if weight < 0:
+            raise ValueError
+        if id2 not in dict(edges[id1]).keys():
+            edgeSize += 1
+        elif weight == Edge(edges[id1][id2]).weight:
+            return False
+        MC += 1
+        edge = Edge(id1, id2, weight)
+        edges[id1][id2] = edge
+        parents[id2][id1] = edge
+        return True
         """
         Adds an edge to the graph.
         @param id1: The start node of the edge
@@ -70,31 +89,32 @@ class DiGraph(GraphInterface):
         raise NotImplementedError
 
     def add_node(self, node_id: int, pos: tuple = None) -> bool:
-        global graph
         if graph is not None:
             if node_id in dict(graph).keys():
                 return False
         node = NodeData(X=pos[0], Y=pos[1], Z=pos[2], Key=node_id)
         graph[node_id] = node
+        edges[node_id] = {}
+        parents[node_id] = {}
         return True
 
     def remove_node(self, node_id: int) -> bool:
-        """
-        Removes a node from the graph.
-        @param node_id: The node ID
-        @return: True if the node was removed successfully, False o.w.
-
-        Note: if the node id does not exists the function will do nothing
-        """
-        raise NotImplementedError
+        if node_id not in graph.keys():
+            return False
+        del graph[node_id]
+        return True
 
     def remove_edge(self, node_id1: int, node_id2: int) -> bool:
-        """
-        Removes an edge from the graph.
-        @param node_id1: The start node of the edge
-        @param node_id2: The end node of the edge
-        @return: True if the edge was removed successfully, False o.w.
+        if node_id1 or node_id2 not in graph.keys():
+            return False
+        if node_id2 not in dict(edges[node_id1]).keys():
+            return False
+        del edges[node_id1][node_id2]
+        del parents[node_id1][node_id1]
+        edgeSize += 1
+        MC += 1
+        return True
 
-        Note: If such an edge does not exists the function will do nothing
-        """
-        raise NotImplementedError
+    def __str__(self) -> str:
+
+        return str(graph.values())

@@ -4,10 +4,10 @@ import numpy
 
 class Edge:
 
-    def __init__(self, src, dest, whight, info, tag):
+    def __init__(self, src, dest, weight, info="", tag=-1):
         self.tag = tag
         self.info = info
-        self.whight = whight
+        self.weight = weight
         self.dest = dest
         self.src = src
 
