@@ -70,7 +70,7 @@ class DiGraph(GraphInterface):
             raise ValueError
         if id2 not in dict(edges[id1]).keys():
             edgeSize += 1
-        elif weight == Edge(edges[id1][id2]).weight:
+        elif weight == edges[id1][id2].weight:
             return False
         MC += 1
         edge = Edge(id1, id2, weight)
