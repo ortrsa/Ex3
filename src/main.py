@@ -12,6 +12,6 @@ if __name__ == '__main__':
     print(graph.add_edge(1, 2, 3))
     print(graph.add_edge(3, 2, 4))
     print(graph.add_edge(1, 4, 6))
-    print(graph.add_edge(1, 2, 3))
-
+    print(graph.add_edge(1, 2, 4))
+    graph.remove_edge(1,2)
     print(graph.e_size())

@@ -105,13 +105,15 @@ class DiGraph(GraphInterface):
         return True
 
     def remove_edge(self, node_id1: int, node_id2: int) -> bool:
-        if node_id1 or node_id2 not in graph.keys():
+        global edgeSize
+        global MC
+        if node_id1 not in graph.keys() or node_id2 not in graph.keys():
             return False
-        if node_id2 not in dict(edges[node_id1]).keys():
+        if node_id2 not in edges[node_id1].keys():
             return False
         del edges[node_id1][node_id2]
-        del parents[node_id1][node_id1]
-        edgeSize += 1
+        del parents[node_id2][node_id1]
+        edgeSize -= 1
         MC += 1
         return True
 
