@@ -15,3 +15,6 @@ class Edge:
         return self.src == other.src and \
                self.dest == other.destand and \
                self.weight == other.weight
+
+    def __repr__(self):
+        return " src= " + str(self.src) + " dest= " + str(self.dest) + " weight= "+ str(self.weight)
