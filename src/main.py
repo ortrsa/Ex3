@@ -1,10 +1,12 @@
 from DiGraph import DiGraph
 from Edge import Edge
+from NodaData import NodeData
 
-graph = {1: "a", 2: "b", 3: "c", 4: "d", 5: "e"}
-edge = {1: 2, 2: 3, 3: 4}
 if __name__ == '__main__':
-    for x in range(50):
-        p = Edge(1, 2, 3, 1, 2)
+    graph = DiGraph()
+    graph.add_node(1, (1, 2, 3))
+    graph.add_node(2, (2, 3, 4))
+    graph.add_node(3, (4, 5, 6))
+    graph.add_node(4, (5, 6, 7))
 
-print(p.counter)
+    print(graph.e_size())

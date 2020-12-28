@@ -1,6 +1,7 @@
 from functools import cmp_to_key
 import numpy
 
+
 class Edge:
 
     def __init__(self, src, dest, whight, info, tag):

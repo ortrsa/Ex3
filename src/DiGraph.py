@@ -1,10 +1,18 @@
 from src.GraphInterface import GraphInterface
 from Edge import Edge
+from NodaData import NodeData
+
+graph: dict = {}
+edges: dict = {}
+parents: dict = {}
 
 
 class DiGraph(GraphInterface):
 
-    def __init__(self, graph: dict, edges: dict, parents: dict):
+    def __init__(self):
+        global graph
+        global edges
+        global parents
         self.Graph = graph
         self.Edges = edges
         self.Parents = parents
@@ -18,12 +26,23 @@ class DiGraph(GraphInterface):
         return len(self.Edges)
 
     def get_all_v(self) -> dict:
-        return self.Graph
+        return self.Graph.values()
 
     def all_in_edges_of_node(self, id1: int) -> dict:
+        dict1 = None
+        itr = iter(dict(self.par[id1]).keys())
+        while True:
+            try:
+                temp = next(itr)
+                dict1[temp] = NodeData(self.Graph.keys(temp)).Weight
+
+            except StopIteration:
+                break
+
         """return a dictionary of all the nodes connected to (into) node_id ,
         each node is represented using a pair (key, weight)
          """
+        return dict1
 
     def all_out_edges_of_node(self, id1: int) -> dict:
         """return a dictionary of all the nodes connected from node_id , each node is represented using a pair (key,
@@ -51,15 +70,13 @@ class DiGraph(GraphInterface):
         raise NotImplementedError
 
     def add_node(self, node_id: int, pos: tuple = None) -> bool:
-        """
-        Adds a node to the graph.
-        @param node_id: The node ID
-        @param pos: The position of the node
-        @return: True if the node was added successfully, False o.w.
-
-        Note: if the node id already exists the node will not be added
-        """
-        raise NotImplementedError
+        global graph
+        if graph is not None:
+            if node_id in dict(graph).keys():
+                return False
+        node = NodeData(X=pos[0], Y=pos[1], Z=pos[2], Key=node_id)
+        graph[node_id] = node
+        return True
 
     def remove_node(self, node_id: int) -> bool:
         """
