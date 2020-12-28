@@ -1,4 +1,7 @@
-class DiGraph:
+from src.GraphInterface import GraphInterface
+
+
+class DiGraph(GraphInterface):
 
     def __init__(self, graph: dict, edges: dict, parents: dict):
         self.Graph = graph
