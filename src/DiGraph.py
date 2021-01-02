@@ -32,7 +32,7 @@ class DiGraph(GraphInterface):
             try:
 
                 temp = next(itr)
-                dict1[temp] = parents[id1][temp].weight
+                dict1[temp] = parents[id1][temp].w
 
             except StopIteration:
                 break
@@ -46,7 +46,7 @@ class DiGraph(GraphInterface):
             try:
 
                 temp = next(itr)
-                dict1[temp] = edges[id1][temp].weight
+                dict1[temp] = edges[id1][temp].w
 
             except StopIteration:
                 break
@@ -68,7 +68,7 @@ class DiGraph(GraphInterface):
             raise ValueError
         if id2 not in dict(edges[id1]).keys():
             edgeSize += 1
-        elif weight == edges[id1][id2].weight:
+        elif weight == edges[id1][id2].w:
             return False
         MC += 1
         edge = Edge(id1, id2, weight)
@@ -112,3 +112,6 @@ class DiGraph(GraphInterface):
 
     def __str__(self) -> str:
         return str(graph.values())
+
+    def as_dict(self):
+        return self.__dict__

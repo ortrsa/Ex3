@@ -32,12 +32,23 @@ class GraphAlgo(GraphAlgoInterface):
                     for edge in x["Edges"]:
                         self.G.add_edge(edge["src"], edge["dest"], edge["w"])
 
-
         except IOError as e:
             return e
 
     def save_to_json(self, file_name: str) -> bool:
-        pass
+        graph_dict = {}
+        edge_list = []
+        for i in self.G.Edges.values():
+            for j in i.values():
+                edge_list.append(j)
+
+        try:
+            with open(file_name, "w") as file:
+                graph_dict["Edges"] = edge_list
+                graph_dict["Nodes"] = [i for i in self.G.Graph.values()]
+                json.dump(graph_dict, default=lambda m: m.as_dict(), fp=file)
+        except IOError as e:
+            return e
 
     def shortest_path(self, id1: int, id2: int) -> (float, list):
         used = []
@@ -55,12 +66,12 @@ class GraphAlgo(GraphAlgoInterface):
             t = unused.get()
             used.append(t)
 
-            for Nei in self.G.all_out_edges_of_node(t.Key):
+            for Nei in self.G.all_out_edges_of_node(t.id):
                 if not nodeDis.__contains__(Nei):
                     nodeDis[Nei] = -1
                 tempNeiDis = nodeDis.get(Nei)
-                tDis = nodeDis.get(t.Key)
-                EdgeDis = self.G.Edges.get(t.Key).get(Nei).weight
+                tDis = nodeDis.get(t.id)
+                EdgeDis = self.G.Edges.get(t.id).get(Nei).w
 
                 if (tempNeiDis == -1 or tempNeiDis > (tDis + EdgeDis)) and not used.__contains__(self.G.Graph.get(Nei)):
                     nodeDis[Nei] = tDis + EdgeDis
@@ -88,7 +99,7 @@ class GraphAlgo(GraphAlgoInterface):
         connected1.put(self.G.Graph.get(id1))
 
         while not connected1.empty():
-            for node in self.G.all_out_edges_of_node(connected1.get().Key):
+            for node in self.G.all_out_edges_of_node(connected1.get().id):
                 if self.G.Graph.get(node).Weight == -1:
                     self.G.Graph.get(node).Weight = 0
                     connected1.put(self.G.Graph.get(node))
@@ -97,7 +108,7 @@ class GraphAlgo(GraphAlgoInterface):
         connected1.put(self.G.Graph.get(id1))
 
         while not connected1.empty():
-            for node in self.G.all_in_edges_of_node(connected1.get().Key):
+            for node in self.G.all_in_edges_of_node(connected1.get().id):
                 if self.G.Graph.get(node).Weight == -1:
                     self.G.Graph.get(node).Weight = 0
                     connected1.put(self.G.Graph.get(node))
@@ -115,7 +126,7 @@ class GraphAlgo(GraphAlgoInterface):
         res = []
 
         while len(all_nodes) > 0:
-            list1 = self.connected_component(all_nodes[0].Key)
+            list1 = self.connected_component(all_nodes[0].id)
             res.append(list1)
             for i in list1:
                 all_nodes.remove(i)
@@ -124,15 +135,15 @@ class GraphAlgo(GraphAlgoInterface):
 
     def plot_graph(self) -> None:
 
-        x = [i.Pos[0] for i in self.G.get_all_v().values()]
-        y = [i.Pos[1] for i in self.G.get_all_v().values()]
+        x = [i.pos[0] for i in self.G.get_all_v().values()]
+        y = [i.pos[1] for i in self.G.get_all_v().values()]
 
         for i in self.G.get_all_v().values():
-            for j in self.G.all_out_edges_of_node(i.Key):
-                x1 = i.Pos[0]
-                y1 = i.Pos[1]
-                x2 = self.G.Graph[j].Pos[0]
-                y2 = self.G.Graph[j].Pos[1]
+            for j in self.G.all_out_edges_of_node(i.id):
+                x1 = i.pos[0]
+                y1 = i.pos[1]
+                x2 = self.G.Graph[j].pos[0]
+                y2 = self.G.Graph[j].pos[1]
                 plt.plot([x1, x2], [y1, y2], "r-")
         plt.plot(x, y, "o")
         plt.show()
@@ -144,6 +155,4 @@ class GraphAlgo(GraphAlgoInterface):
     def revers(self) -> DiGraph:
         g1 = DiGraph()
         for i in self.G.get_all_v().values():
-            g1.add_node(i.Key)
-
-
+            g1.add_node(i.id)

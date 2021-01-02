@@ -9,10 +9,10 @@ class NodeData:
         global Counter
         Counter = Counter + 1
         self.Info = Info
-        self.Pos = (X, Y, Z)
+        self.pos = (X, Y, Z)
         self.Tag = Tag
         self.Weight = -1
-        self.Key = Key
+        self.id = Key
 
     def __lt__(self, other):
         if self.Weight < other.Weight:
@@ -25,10 +25,25 @@ class NodeData:
             (self.pos[0] - other.pos[0]) ** 2 + (self.pos[1] - other.pos[1]) ** 2 + (self.pos[2] - other.pos[2]) ** 2)
 
     def __eq__(self, other):
-        return self.Key == other.Key and \
+        return self.id == other.id and \
                self.Tag == other.Tag and \
                self.Weight == other.Weight and \
-               self.Pos == other.Pos
+               self.pos == other.pos
 
     def __repr__(self):
-        return "Key = " + str(self.Key) + " Pos = " + str(self.Pos) + " w = " + str(self.Weight)
+        return " \"pos\":" + "\"" + str(self.pos[0]) + "," + str(self.pos[1]) + "," + \
+               str(0) + "\"," + "\"id\":" + str(self.id)
+
+    def as_dict(self):
+        res = self.__dict__
+        try:
+            del res["Tag"]
+            del res["Weight"]
+            del res["Info"]
+            x = self.pos[0]
+            y = self.pos[1]
+            z = self.pos[2]
+            res["pos"] = "" + str(x) + "," + str(y) + "," + str(z)
+        except:
+            print("not found")
+        return res

@@ -10,24 +10,19 @@ import queue
 if __name__ == '__main__':
     graph = DiGraph()
 
-for i in range(6):
-    graph.add_node(i)
-
-graph.add_edge(0, 2, 1)
-graph.add_edge(2, 0, 1)
-graph.add_edge(1, 2, 1)
-graph.add_edge(2, 1, 1)
-graph.add_edge(2, 3, 1)
-graph.add_edge(3, 4, 1)
-graph.add_edge(4, 5, 1)
-
-
+# for i in range(0, 100):
+#     graph.add_node(i)
+#
+# for i in range(50):
+#     graph.add_edge(random.randint(0,50),random.randint(50,99),1)
 
 # for i in range(6):
 #     graph.add_edge(random.randint(0,99), random.randint(0,99), 5)
 
 
 Ga = GraphAlgo(graph)
-# Ga.load_from_json("data/A3")
-# Ga.plot_graph()
-print(Ga.connected_components())
+Ga.load_from_json("try.txt")
+Ga.plot_graph()
+# for i in Ga.G.get_all_v().values():
+#     print(i.as_dict())
+# Ga.save_to_json("try.txt")
