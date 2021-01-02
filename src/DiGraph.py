@@ -23,7 +23,7 @@ class DiGraph(GraphInterface):
         return edgeSize
 
     def get_all_v(self) -> dict:
-        return self.Graph.values()
+        return self.Graph
 
     def all_in_edges_of_node(self, id1: int) -> dict:
         dict1 = {}
@@ -111,5 +111,4 @@ class DiGraph(GraphInterface):
         return True
 
     def __str__(self) -> str:
-
         return str(graph.values())

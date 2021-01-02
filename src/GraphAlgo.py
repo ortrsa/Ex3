@@ -32,7 +32,6 @@ class GraphAlgo(GraphAlgoInterface):
                     for edge in x["Edges"]:
                         self.G.add_edge(edge["src"], edge["dest"], edge["w"])
 
-                print(self.G.Edges)
 
         except IOError as e:
             return e
@@ -77,21 +76,58 @@ class GraphAlgo(GraphAlgoInterface):
             pointernode = nodePar.get(pointernode.Key)
             path.append(pointernode)
         path.reverse()
-
-        return self.G.Graph.get(id2).Weight, path
+        res = self.G.Graph.get(id2).Weight
+        self.reset_w()
+        return res, path
 
     def connected_component(self, id1: int) -> list:
-        pass
+        connected1 = queue.Queue()
+        connected_to = []
+        connected_from = []
+        res = []
+        connected1.put(self.G.Graph.get(id1))
+
+        while not connected1.empty():
+            for node in self.G.all_out_edges_of_node(connected1.get().Key):
+                if self.G.Graph.get(node).Weight == -1:
+                    self.G.Graph.get(node).Weight = 0
+                    connected1.put(self.G.Graph.get(node))
+                    connected_to.append(self.G.Graph.get(node))
+        self.reset_w()
+        connected1.put(self.G.Graph.get(id1))
+
+        while not connected1.empty():
+            for node in self.G.all_in_edges_of_node(connected1.get().Key):
+                if self.G.Graph.get(node).Weight == -1:
+                    self.G.Graph.get(node).Weight = 0
+                    connected1.put(self.G.Graph.get(node))
+                    connected_from.append(self.G.Graph.get(node))
+        for i in connected_to:
+            if connected_from.__contains__(i):
+                res.append(i)
+        self.reset_w()
+        if len(res) == 0:
+            res.append(self.G.Graph.get(id1))
+        return res
 
     def connected_components(self) -> List[list]:
-        pass
+        all_nodes = [i for i in self.G.get_all_v().values()]
+        res = []
+
+        while len(all_nodes) > 0:
+            list1 = self.connected_component(all_nodes[0].Key)
+            res.append(list1)
+            for i in list1:
+                all_nodes.remove(i)
+
+        return res
 
     def plot_graph(self) -> None:
 
-        x = [i.Pos[0] for i in self.G.get_all_v()]
-        y = [i.Pos[1] for i in self.G.get_all_v()]
+        x = [i.Pos[0] for i in self.G.get_all_v().values()]
+        y = [i.Pos[1] for i in self.G.get_all_v().values()]
 
-        for i in self.G.get_all_v():
+        for i in self.G.get_all_v().values():
             for j in self.G.all_out_edges_of_node(i.Key):
                 x1 = i.Pos[0]
                 y1 = i.Pos[1]
@@ -100,3 +136,14 @@ class GraphAlgo(GraphAlgoInterface):
                 plt.plot([x1, x2], [y1, y2], "r-")
         plt.plot(x, y, "o")
         plt.show()
+
+    def reset_w(self):
+        for node in self.G.get_all_v().values():
+            node.Weight = -1
+
+    def revers(self) -> DiGraph:
+        g1 = DiGraph()
+        for i in self.G.get_all_v().values():
+            g1.add_node(i.Key)
+
+
