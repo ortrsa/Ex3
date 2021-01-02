@@ -1,5 +1,4 @@
 from typing import List
-
 from src import GraphInterface
 
 
@@ -10,6 +9,7 @@ class GraphAlgoInterface:
         """
         :return: the directed graph on which the algorithm works on.
         """
+        raise NotImplementedError
 
     def load_from_json(self, file_name: str) -> bool:
         """

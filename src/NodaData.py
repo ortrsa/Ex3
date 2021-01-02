@@ -6,7 +6,7 @@ Counter = 0
 
 class NodeData:
 
-    def __init__(self, X=0, Y=0, Z=0, Tag=-1, Weight=-1, Key=Counter, Info=""):
+    def __init__(self, X=None, Y=None, Z=None, Tag=-1, Weight=-1, Key=Counter, Info=""):
         global Counter
         Counter = Counter + 1
         self.Info = Info

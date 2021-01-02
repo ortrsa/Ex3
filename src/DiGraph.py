@@ -1,6 +1,7 @@
 from src.GraphInterface import GraphInterface
 from Edge import Edge
 from NodaData import NodeData
+import random
 
 graph: dict = {}
 edges: dict = {}
@@ -10,13 +11,6 @@ MC: int = 0
 
 
 class DiGraph(GraphInterface):
-    global MC
-    global edgeSize
-    global edges
-    global graph
-    global edges
-    global parents
-
     def __init__(self):
         self.Graph = graph
         self.Edges = edges
@@ -60,7 +54,6 @@ class DiGraph(GraphInterface):
         return dict1
 
     def get_mc(self) -> int:
-        global MC
         return MC
 
     def add_edge(self, id1: int, id2: int, weight: float) -> bool:
@@ -83,12 +76,15 @@ class DiGraph(GraphInterface):
         parents[id2][id1] = edge
         return True
 
-    def add_node(self, node_id: int, pos: tuple = None) -> bool:
+    def add_node(self, node_id: int, X: float = None, Y: float = None, Z: float = 0) -> bool:
         global MC
         if graph is not None:
             if node_id in dict(graph).keys():
                 return False
-        node = NodeData(X=pos[0], Y=pos[1], Z=pos[2], Key=node_id)
+        if X is None:
+            X = random.uniform(0.0, 10.0)
+            Y = random.uniform(0.0, 10.0)
+        node = NodeData(X, Y, Z, Key=node_id)
         graph[node_id] = node
         edges[node_id] = {}
         parents[node_id] = {}
