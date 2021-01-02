@@ -1,4 +1,3 @@
-from functools import cmp_to_key
 import numpy as np
 
 Counter = 0
@@ -12,13 +11,11 @@ class NodeData:
         self.Info = Info
         self.Pos = (X, Y, Z)
         self.Tag = Tag
-        self.Weight = Weight
+        self.Weight = -1
         self.Key = Key
 
-    def comp(self, other) -> int:
+    def __lt__(self, other):
         if self.Weight < other.Weight:
-            return -1
-        elif self.Weight > other.Weight:
             return 1
         else:
             return 0
@@ -34,4 +31,4 @@ class NodeData:
                self.Pos == other.Pos
 
     def __repr__(self):
-        return "Key = " + str(self.Key) + " Pos = " + str(self.Pos)
+        return "Key = " + str(self.Key) + " Pos = " + str(self.Pos) + " w = " + str(self.Weight)
