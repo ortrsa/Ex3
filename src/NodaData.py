@@ -1,11 +1,11 @@
 import numpy as np
-
+import copy
 Counter = 0
 
 
 class NodeData:
 
-    def __init__(self, X=None, Y=None, Z=None, Tag=-1, Weight=-1, Key=Counter, Info=""):
+    def __init__(self, X=None, Y=None, Z=None, Tag=-1, Key=Counter, Info=""):
         global Counter
         Counter = Counter + 1
         self.Info = Info
@@ -30,12 +30,15 @@ class NodeData:
                self.Weight == other.Weight and \
                self.pos == other.pos
 
+    # def __repr__(self):
+    #     return " \"pos\":" + "\"" + str(self.pos[0]) + "," + str(self.pos[1]) + "," + \
+    #            str(0) + "\"," + "\"id\":" + str(self.id)
+
     def __repr__(self):
-        return " \"pos\":" + "\"" + str(self.pos[0]) + "," + str(self.pos[1]) + "," + \
-               str(0) + "\"," + "\"id\":" + str(self.id)
+        return str(self.id)
 
     def as_dict(self):
-        res = self.__dict__
+        res = copy.deepcopy(self.__dict__)
         try:
             del res["Tag"]
             del res["Weight"]
@@ -45,5 +48,5 @@ class NodeData:
             z = self.pos[2]
             res["pos"] = "" + str(x) + "," + str(y) + "," + str(z)
         except:
-            print("not found")
+            pass
         return res

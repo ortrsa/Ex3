@@ -8,21 +8,21 @@ import random
 import queue
 
 if __name__ == '__main__':
-    graph = DiGraph()
 
-# for i in range(0, 100):
-#     graph.add_node(i)
-#
-# for i in range(50):
-#     graph.add_edge(random.randint(0,50),random.randint(50,99),1)
-
-# for i in range(6):
-#     graph.add_edge(random.randint(0,99), random.randint(0,99), 5)
-
-
-Ga = GraphAlgo(graph)
-Ga.load_from_json("try.txt")
-Ga.plot_graph()
-# for i in Ga.G.get_all_v().values():
-#     print(i.as_dict())
+    g_algo = GraphAlgo()
+    file = 'data/A5'
+    g_algo.load_from_json(file)
+    g_algo.get_graph().remove_edge(13, 14)
+    g_algo.save_to_json(file + "_edited")
+    dist, path = g_algo.shortest_path(1, 7)
+    print(dist, path)
+    dist, path = g_algo.shortest_path(47, 19)
+    print(dist, path)
+    dist, path = g_algo.shortest_path(20, 2)
+    print(dist, path)
+    dist, path = g_algo.shortest_path(2, 20)
+    # print(dist, path)
+    print(g_algo.connected_component(0))
+    print(g_algo.connected_components())
+    g_algo.plot_graph()
 # Ga.save_to_json("try.txt")

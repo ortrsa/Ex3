@@ -1,6 +1,6 @@
 from functools import cmp_to_key
 import numpy
-
+import copy
 
 class Edge:
 
@@ -20,10 +20,10 @@ class Edge:
         return " src= " + str(self.src) + " dest= " + str(self.dest) + " weight= " + str(self.w)
 
     def as_dict(self):
-        res = self.__dict__
+        res = copy.deepcopy(self.__dict__)
         try:
             del res["tag"]
             del res["info"]
         except:
-            print("not found")
+            pass
         return res
