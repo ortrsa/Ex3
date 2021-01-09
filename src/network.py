@@ -10,20 +10,24 @@ class Network:
 
     def __init__(self, filename: str):
         self.G = nx.DiGraph()
-        d = json.load(open(filename))
-        # self.G.add_nodes_from([i["id"] for i in d['Nodes']])
-        for i in d['Nodes']:
-            if "pos" not in i:
-                x = None
-                y = None
-            else:
-                xstr = i["pos"].split(",")[0]
-                ystr = i["pos"].split(",")[1]
-                x = float(xstr)
-                y = float(ystr)
-            self.G.add_node(i["id"], pos=(x, y))
-        for i in d["Edges"]:
-            self.G.add_edge(i["src"], i["dest"], weight=i["w"])
+        try:
+            with open(filename, "r") as file:
+                d = json.load(file)
+                # self.G.add_nodes_from([i["id"] for i in d['Nodes']])
+                for i in d['Nodes']:
+                    if "pos" not in i:
+                        x = None
+                        y = None
+                    else:
+                        xstr = i["pos"].split(",")[0]
+                        ystr = i["pos"].split(",")[1]
+                        x = float(xstr)
+                        y = float(ystr)
+                    self.G.add_node(i["id"], pos=(x, y))
+                for i in d["Edges"]:
+                    self.G.add_edge(i["src"], i["dest"], weight=i["w"])
+        except IOError as e:
+            print(e)
 
     def g_to_plot(self):
         pos = pos = nx.get_node_attributes(self.G, 'pos')
