@@ -1,5 +1,4 @@
 import math
-
 import numpy as np
 import copy
 Counter = 0
@@ -29,9 +28,8 @@ class NodeData:
     def __eq__(self, other):
         return self.id == other.id
 
-    # def __repr__(self):
-    #     return " \"pos\":" + "\"" + str(self.pos[0]) + "," + str(self.pos[1]) + "," + \
-    #            str(0) + "\"," + "\"id\":" + str(self.id)
+
+
 
     def __repr__(self):
         return str(self.id)

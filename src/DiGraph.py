@@ -69,6 +69,12 @@ class DiGraph(GraphInterface):
         if node_id not in self.graph.keys():
             return False
         del self.graph[node_id]
+        for i in self.all_in_edges_of_node(node_id).keys():
+            self.remove_edge(node_id,i)
+        for i in self.all_out_edges_of_node(node_id).keys():
+            self.remove_edge(node_id,i)
+        del self.oute[node_id]
+        del self.ine[node_id]
         return True
 
     def remove_edge(self, node_id1: int, node_id2: int) -> bool:
