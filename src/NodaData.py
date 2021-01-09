@@ -1,3 +1,5 @@
+import math
+
 import numpy as np
 import copy
 Counter = 0
@@ -5,13 +7,13 @@ Counter = 0
 
 class NodeData:
 
-    def __init__(self, X=None, Y=None, Z=None, Tag=-1, Key=Counter, Info=""):
+    def __init__(self, X=None, Y=None, Z=None, Key=Counter, Info=""):
         global Counter
         Counter = Counter + 1
         self.Info = Info
         self.pos = (X, Y, Z)
-        self.Tag = Tag
-        self.Weight = -1
+        self.Tag = -1
+        self.Weight = math.inf
         self.id = Key
 
     def __lt__(self, other):
@@ -25,10 +27,7 @@ class NodeData:
             (self.pos[0] - other.pos[0]) ** 2 + (self.pos[1] - other.pos[1]) ** 2 + (self.pos[2] - other.pos[2]) ** 2)
 
     def __eq__(self, other):
-        return self.id == other.id and \
-               self.Tag == other.Tag and \
-               self.Weight == other.Weight and \
-               self.pos == other.pos
+        return self.id == other.id
 
     # def __repr__(self):
     #     return " \"pos\":" + "\"" + str(self.pos[0]) + "," + str(self.pos[1]) + "," + \
