@@ -16,20 +16,32 @@ if __name__ == '__main__':
     # digraph.graph_maker(1000000,2000000)
     # g_algo = GraphAlgo(digraph)
     # print(g_algo.G)
-    filen = "G_100_800_0.json"
+    filen = "../data/A5"
 
-    my_g = GraphAlgo()
-    my_g.load_from_json(filen)
-    my_g.save_to_json("G_30000_240000_0Ex2.json")
-    my_time_s = time.time()
-    # t1 = my_g.connected_components()
-    t1 = my_g.connected_components()
-    # short1 = my_g.connected_component(378)
-    my_time_e = time.time()
+    temp = DiGraph()
+    for i in range(5):
+        temp.add_node(i)
+    temp.add_edge(0,1,1)
+    temp.add_edge(1, 2, 1)
+    temp.add_edge(1, 3, 1)
+    temp.add_edge(2, 1, 1)
+    temp.add_edge(2, 0, 1)
+    temp.add_edge(3, 4, 1)
+    temp.add_edge(4, 1, 1)
+    # temp.add_edge(4, 1, 1)
+    my_g = GraphAlgo(temp)
+    print(my_g.G.e_size())
+    print(my_g.G.remove_node(1))
+
+
+    print(my_g.G.all_out_edges_of_node(2))
+    print(my_g.G.e_size())
     # my_g.plot_graph()
-    # print(short1,my_time_e - my_time_s)
-    # print(t1, my_time_e - my_time_s)
-    print( my_time_e - my_time_s)
+
+    # t1 = my_g.shortest_path(2,3)
+
+
+    # print(t1)
     print()
     print()
     print()
