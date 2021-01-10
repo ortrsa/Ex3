@@ -1,15 +1,11 @@
 # Ex2
 
-# Overview 
-This project is an implementation of data structures and algorithms on directional weighted graph in Java.    
-It is direct continuation of Ex1, you can find more abut Ex1 in [Here](https://github.com/ortrsa/ex1).  
-in this project we will run the "pokemon game".  
-### The game:  
-the game server will place agent and pokemon with different values on directional weighted graph.  
-Every edge have different weight and affects the agent speed.
-### the goal:
-the agent's will need to eat as many points as possible by eating many Pokemon's with high value.  
-The main goal of this project is to program the most effective way to get as many points as possible with few calls to server.  
+## Overview 
+-This project is an implementation of data structures and algorithms on directional weighted graph in python.    
+-It is converthion from Ex2 that was made at java, you can find more abut Ex2 in [Here](https://github.com/ortrsa/ex2).  
+-This project was build from 3 parts:
+**part1:** imploment basic directional weighted graph class `DiGraph` that contains simpale functions on graph(`v_size()`,`add_node()`,`add_edge()`and more).
+you can find all the relevant functions in this [Wiki](https://github.com/ortrsa/ex2). 
 
 This repo contains the following files: [WikiPage](https://github.com/ortrsa/Ex2/wiki/Files). 
   
