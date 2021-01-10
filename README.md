@@ -9,7 +9,7 @@
 **part2:** imploment `GraphAlgo` class, that contains more advanced functions on graph.  
 (`shortest_path()`,`load_from_json`,`plot_graph`...)    
 *(you can find all the relevant functions in this [WikiPage](https://github.com/ortrsa/Ex3/wiki/Inherent-diagram).)*  
-**part3:** compare runing time and correctnes between this project,[Ex2](https://github.com/ortrsa/ex2)  and [networkx](https://github.com/networkx/networkx). 
+**part3:** compare [runing time](https://github.com/ortrsa/Ex3/wiki/Time-comparison) and [correctness](https://github.com/ortrsa/Ex3/wiki/circle-graph-time-comparison-and-correctness-check) between this project,[Ex2](https://github.com/ortrsa/ex2)  and [networkx](https://github.com/networkx/networkx). 
 
   
     
