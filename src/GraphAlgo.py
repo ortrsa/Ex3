@@ -1,13 +1,11 @@
 import math
 from typing import List
-
 import GraphInterface
-from src.GraphAlgoInterface import GraphAlgoInterface
-from NodaData import NodeData
 import matplotlib.pyplot as plt
 from src.DiGraph import DiGraph
 import json
 import queue
+from src.GraphAlgoInterface import GraphAlgoInterface
 
 
 class GraphAlgo(GraphAlgoInterface):
@@ -186,15 +184,16 @@ class GraphAlgo(GraphAlgoInterface):
         we add every node by his pos and every edge by it src and dest(we draw a line between them)'''
         x = [i.pos[0] for i in self.G.get_all_v().values()]
         y = [i.pos[1] for i in self.G.get_all_v().values()]
-
+        plt.plot(x, y, "o")
         for i in self.G.get_all_v().values():
             for j in self.G.all_out_edges_of_node(i.id):
                 x1 = i.pos[0]
                 y1 = i.pos[1]
                 x2 = self.G.graph[j].pos[0]
                 y2 = self.G.graph[j].pos[1]
-                plt.plot([x1, x2], [y1, y2], "r-")
-        plt.plot(x, y, "o")
+                # plt.plot([x1, x2], [y1, y2], "k-")
+                plt.annotate("", xy=(x1, y1), xytext=(x2, y2), arrowprops=dict(arrowstyle="->"))
+
         plt.show()
 
     def reset_w(self):
