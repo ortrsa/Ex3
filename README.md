@@ -3,9 +3,9 @@
 ## Overview 
 -This project is an implementation of data structures and algorithms on directional weighted graph in python.    
 -It is converthion from Ex2 that was made at java, you can find more abut Ex2 in [Here](https://github.com/ortrsa/ex2).  
--This project was build from 3 parts:
-**part1:** imploment basic directional weighted graph class `DiGraph` that contains simpale functions on graph. (`v_size()`,`add_node()`,`add_edge()`...).
-**part2:** imploment `GraphAlgo` class, that contains more advanced functions on graph. (`shortest_path()`,`load_from_json`,`plot_graph`...)
+-This project was build from 3 parts:  
+**part1:** imploment basic directional weighted graph class `DiGraph` that contains simpale functions on graph. (`v_size()`,`add_node()`,`add_edge()`...).  
+**part2:** imploment `GraphAlgo` class, that contains more advanced functions on graph. (`shortest_path()`,`load_from_json`,`plot_graph`...)  
 *(you can find all the relevant functions in this [WikiPage](https://github.com/ortrsa/Ex3/wiki/Inherent-diagram).)*
 
   
