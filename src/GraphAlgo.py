@@ -37,8 +37,10 @@ class GraphAlgo(GraphAlgoInterface):
                     for edge in x["Edges"]:
                         self.G.add_edge(edge["src"], edge["dest"], edge["w"])
 
+                return True
         except IOError as e:
-            return e
+            print(e)
+            return False
 
     def save_to_json(self, file_name: str) -> bool:
         '''save a graph to a text file and saving his Nodes and Edges
@@ -57,8 +59,10 @@ class GraphAlgo(GraphAlgoInterface):
                 graph_dict["Edges"] = edge_list
                 graph_dict["Nodes"] = [i for i in self.G.graph.values()]
                 json.dump(graph_dict, default=lambda m: m.as_dict(), fp=file)
+                return True
         except IOError as e:
-            return e
+            print(e)
+            return False
 
     def shortest_path(self, id1: int, id2: int) -> (float, list):
         '''returns a list of nodes that represents the shortest path between tow nodes and the distance as well
@@ -128,6 +132,8 @@ class GraphAlgo(GraphAlgoInterface):
         creating to sets the first one will be filled with the nodes ids that he can get to
         the second one will be filled with the nodes that can get to him then well return the
         intersection of those two lists'''
+        if id1 not in self.G.get_all_v():
+            raise ValueError("node not in the graph")
         connected1 = set()
         connected_to = []
         connected_from = []

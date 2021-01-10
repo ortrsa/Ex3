@@ -117,4 +117,19 @@ class DiGraph(GraphInterface):
     def as_dict(self):
         return self.__dict__
 
+    def __eq__(self, other):
+        temp = self.v_size()
+        temp2 = self.edgeSize
+        temp3 = other.edgeSize
+        if temp3 != temp2:
+            return False
+        for i in range(temp):
+            flag = self.graph.__contains__(i)
+            for j in self.all_out_edges_of_node(i):
+                flag1 = self.oute[i][j] == other.oute[i][j]
+            for k in self.all_in_edges_of_node(i):
+                flag2 = self.ine[i][k] == other.ine[i][k]
+        return self.v_size() == other.v_size() and flag and flag1 and flag2
+
+
 
