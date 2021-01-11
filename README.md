@@ -7,7 +7,11 @@
 **part1:** imploment basic directional weighted graph class `DiGraph` that contains simpale functions on graph.  
 **part2:** imploment `GraphAlgo` class, that contains more advanced functions on graph.      
 *(you can find all the relevant functions in this [WikiPage](https://github.com/ortrsa/Ex3/wiki/Inherent-diagram).)*  
-**part3:** compare [runing time](https://github.com/ortrsa/Ex3/wiki/Time-comparison) and [correctness](https://github.com/ortrsa/Ex3/wiki/circle-graph-time-comparison-and-correctness-check) between this project, [Ex2](https://github.com/ortrsa/ex2)  and [networkx](https://github.com/networkx/networkx). 
+**part3:** compare runing time and correctness between this project, [Ex2](https://github.com/ortrsa/ex2)  and [networkx](https://github.com/networkx/networkx).
+ - To see time compareition on circal graphs click **[here](https://github.com/ortrsa/ex2)**.
+ - To see time compareition on random graphs click **[here](https://github.com/ortrsa/ex2)**.
+ - For correctness report outputs click **[here](https://github.com/ortrsa/ex2)**
+ - *(you can find the correctness file in the src folder feel free to verified this output)*
 
   
     
