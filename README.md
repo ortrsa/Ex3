@@ -1,9 +1,11 @@
-# Ex2
+# Ex3
 
 ## Overview 
 - This project is an implementation of data structures and algorithms on directional weighted graph in python.    
-- It is converthion from Ex2 that was made at java, you can find more abut Ex2 in [Here](https://github.com/ortrsa/ex2).  
+- It is converthion from Ex2 that was made at java, you can find more abut Ex2 in [Here](https://github.com/ortrsa/ex2).
+- This is a text base program however you can still drow the graph with `plot_graph()` method. 
 - This project was build from 3 parts:    
+
 **part1:** imploment basic directional weighted graph class `DiGraph` that contains simpale functions on graph.
 
 **part2:** imploment `GraphAlgo` class, that contains more advanced functions on graph.      
@@ -17,7 +19,41 @@
   - *(you can find the correctness file in the src folder feel free to verified this output)*
 
   
-    
+# How To Run
+ 
+first clone the repo:
+```sh
+$ git clone https://github.com/ortrsa/Ex3.git
+
+```
+than you can load graph from JSON file with `load_from_json("your_file_name")`,  
+or create your own graph like this:  
+```sh
+my_DiG = DiGraph()
+
+my_DiG.add_node(1)
+my_DiG.add_node(2)
+         .
+         .
+         .
+         .
+         .       edge weight
+         .           |
+                     V
+my_DiG.add_edge(1,2,14)
+my_DiG.add_edge(2,1,16)
+         .
+         .
+         .
+my_G = GraphAlgo(my_DiG)
+
+"
+put your code here....
+"
+        
+```
+You can read about all the functions in detail [here](https://github.com/ortrsa/Ex3/wiki/Functions-explanation).
+
 
 # How it's work..
 This algorithm calculates the shortest path from each agent to the closest free pokemon.
@@ -41,29 +77,12 @@ then we set his edge by his src (the node his on right now) and his dest that we
               
 
 
-# How To Run
-This program has a graphical interface.  
-first clone the repo:
-```sh
-$ git clone https://github.com/ortrsa/Ex2.git
-
-```
-then there are 2 option that you can run it:  
-1- with your commend line, navigate to the repo folder and enter this code:  
-(replace "ID" with your ID and "Level" with the chosen Level. )
- ```sh
- $ java -jar Ex2.jar "ID" "Level"
- 
- ```
-2- double-click on the Ex2.jar file, enter Id and level at the text field and press start game.  
-
 # Links:
 - [Dijkstra's Algorithm - Wikipedia](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
 - [Directed_graph - Wikipedia](https://en.wikipedia.org/wiki/Directed_graph)
-- [Game result - Wiki page](https://github.com/ortrsa/Ex2/wiki/result)
-- [Ex1](https://github.com/ortrsa/ex1)
-- [Arena Functions - Wiki](https://github.com/ortrsa/Ex2/wiki/Arena-Functions)
-- [Ex2 Functions - Wiki](https://github.com/ortrsa/Ex2/wiki/Ex2)
+- [correctnes file output - Wiki](https://github.com/ortrsa/Ex2/wiki/result)
+- [Ex2](https://github.com/ortrsa/ex2)
+- [Functions - Wiki](https://github.com/ortrsa/Ex3/wiki/Functions-explanation)
 
 # About:
 This project is part of oop course of Ariel university and made for study purposes.  
