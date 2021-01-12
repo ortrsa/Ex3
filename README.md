@@ -6,11 +6,12 @@
 - This is a text base program however you can still drow the graph with `plot_graph()` method. 
 - This project was build from 3 parts:    
 
-**part1:** imploment basic directional weighted graph class `DiGraph` that contains simpale functions on graph.
+**part1:** implement basic directional weighted graph class `DiGraph` that contains simpale functions on graph.
 
-**part2:** imploment `GraphAlgo` class, that contains more advanced functions on graph.      
+**part2:** implement `GraphAlgo` class, that contains more advanced functions on graph.      
 
-*(you can find all the relevant functions in this [WikiPage](https://github.com/ortrsa/Ex3/wiki/Inherent-diagram).)*  
+*(you can read all about the functions in [here](https://github.com/ortrsa/Ex3/wiki/Functions-explanation).)*
+  
 **part3:** compare runing time and correctness between this project, [Ex2](https://github.com/ortrsa/ex2)  and [networkx](https://github.com/networkx/networkx).  
 
   - To see time compareition on circal graphs click **[here](https://github.com/ortrsa/ex2)**.
@@ -57,7 +58,7 @@ You can read all about the functions in [here](https://github.com/ortrsa/Ex3/wik
 
 
 # How it's work..
-After initing the graph, the fun part begins,  
+After initializing the graph, the fun part begins,  
 In GraphAlgo we implement advenced functhion with some familiar algorithms like BFS, and dijkstra's.  
 
 
@@ -84,10 +85,12 @@ we abale to make this lists using [BFS](https://en.wikipedia.org/wiki/Breadth-fi
 
 # Links:
 - [Dijkstra's Algorithm - Wikipedia](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+- [BFS - Wikipedia](https://en.wikipedia.org/wiki/Breadth-first_search)
 - [Directed_graph - Wikipedia](https://en.wikipedia.org/wiki/Directed_graph)
 - [correctnes file output - Wiki](https://github.com/ortrsa/Ex2/wiki/result)
 - [Ex2](https://github.com/ortrsa/ex2)
 - [Functions - Wiki](https://github.com/ortrsa/Ex3/wiki/Functions-explanation)
+- *(you can see the structure of the project in this [WikiPage](https://github.com/ortrsa/Ex3/wiki/Inherent-diagram).)*
 
 # About:
 This project is part of oop course of Ariel university and made for study purposes.  
