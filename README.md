@@ -86,7 +86,7 @@ we abale to make this lists using [BFS](https://en.wikipedia.org/wiki/Breadth-fi
 - [Dijkstra's Algorithm - Wikipedia](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
 - [BFS - Wikipedia](https://en.wikipedia.org/wiki/Breadth-first_search)
 - [Directed_graph - Wikipedia](https://en.wikipedia.org/wiki/Directed_graph)
-- [correctnes file output - Wiki](https://github.com/ortrsa/Ex2/wiki/result)
+- [correctnes file output - Wiki](https://github.com/ortrsa/Ex3/wiki/Time-comparison_-new)
 - [Ex2](https://github.com/ortrsa/ex2)
 - [Functions - Wiki](https://github.com/ortrsa/Ex3/wiki/Functions-explanation)
 - *(you can see the structure of the project in this [WikiPage](https://github.com/ortrsa/Ex3/wiki/Inherent-diagram).)*
