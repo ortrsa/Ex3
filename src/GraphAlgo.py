@@ -191,7 +191,6 @@ class GraphAlgo(GraphAlgoInterface):
                 y1 = i.pos[1]
                 x2 = self.G.graph[j].pos[0]
                 y2 = self.G.graph[j].pos[1]
-                # plt.plot([x1, x2], [y1, y2], "k-")
                 plt.annotate("", xy=(x1, y1), xytext=(x2, y2), arrowprops=dict(arrowstyle="->"))
 
         plt.show()

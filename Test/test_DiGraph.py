@@ -1,7 +1,6 @@
 from unittest import TestCase
 from GraphAlgo import GraphAlgo
 from network import Network
-from DiGraph import DiGraph
 import networkx as nx
 
 
@@ -67,10 +66,10 @@ class TestDiGraph(TestCase):
 
     def test_add_edge(self):
         self.assertFalse(Galgo.G.add_edge(0, 1, Galgo.G.oute[0][1]), "this edge already exist->should be False")
-        self.assertTrue(Galgo.G.add_edge(0, 1, 3), "different weight should change the edge ")
+        self.assertFalse(Galgo.G.add_edge(0, 1, 3), "different weight should be false ")
         self.assertFalse(Galgo.G.add_edge(0, 1, -1), "shouldnt add edge with negative weight")
         self.assertTrue(Galgo.G.add_edge(7, 1, 1), "should add a new edge to the graph")
-        self.assertEqual(3, Galgo.G.oute[0][1], "edge should weight 3 after we changed it")
+        self.assertNotEqual(3, Galgo.G.oute[0][1], "edge should'n weight 3")
         self.assertEqual(1, Galgo.G.oute[7][1], "edge should weight 1 after adding it")
 
     def test_add_node(self):

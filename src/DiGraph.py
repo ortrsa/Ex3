@@ -27,11 +27,13 @@ class DiGraph(GraphInterface):
     def all_in_edges_of_node(self, id1: int) -> dict:
         """returns a dict of all the nodes that has edges to the wanted node by id1 and the value is the weight of
         the edge """
+        if id1 not in self.ine.keys(): return None
         return self.ine[id1]
 
     def all_out_edges_of_node(self, id1: int) -> dict:
         """returns a dict of all the nodes that the wanted node by id1 has edges to and the value is the weight of
                 the edge """
+        if id1 not in self.oute.keys() : return None
         return self.oute[id1]
 
     def get_mc(self) -> int:
@@ -50,7 +52,7 @@ class DiGraph(GraphInterface):
             return False
         if id2 not in self.oute[id1].keys():
             self.edgeSize += 1
-        elif weight == self.oute[id1][id2]:
+        else:
             return False
         self.MC += 1
         self.oute[id1][id2] = weight
@@ -67,11 +69,13 @@ class DiGraph(GraphInterface):
         if pos is None:
             X = random.uniform(0.0, 10.0)
             Y = random.uniform(0.0, 10.0)
+            Z = 0
         else:
             X = pos[0]
             Y = pos[1]
+            Z = pos[2]
 
-        node = NodeData(X, Y, 0, Key=node_id)
+        node = NodeData(X, Y, Z, Key=node_id)
         self.graph[node_id] = node
         self.oute[node_id] = {}
         self.ine[node_id] = {}
@@ -88,13 +92,14 @@ class DiGraph(GraphInterface):
 
         a = set(self.all_in_edges_of_node(node_id).keys())
         for i in a:
-            self.remove_edge(i,node_id)
+            self.remove_edge(i, node_id)
         b = set(self.all_out_edges_of_node(node_id).keys())
         for i in b:
-            self.remove_edge(node_id,i)
+            self.remove_edge(node_id, i)
         del self.oute[node_id]
         del self.ine[node_id]
         del self.graph[node_id]
+        self.MC += 1
         return True
 
     def remove_edge(self, node_id1: int, node_id2: int) -> bool:
@@ -125,11 +130,9 @@ class DiGraph(GraphInterface):
             return False
         for i in range(temp):
             flag = self.graph.__contains__(i)
-            for j in self.all_out_edges_of_node(i):
-                flag1 = self.oute[i][j] == other.oute[i][j]
-            for k in self.all_in_edges_of_node(i):
-                flag2 = self.ine[i][k] == other.ine[i][k]
+            if flag:
+                for j in self.all_out_edges_of_node(i):
+                    flag1 = self.oute[i][j] == other.oute[i][j]
+                for k in self.all_in_edges_of_node(i):
+                    flag2 = self.ine[i][k] == other.ine[i][k]
         return self.v_size() == other.v_size() and flag and flag1 and flag2
-
-
-

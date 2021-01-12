@@ -1,19 +1,16 @@
 from unittest import TestCase
 import json
 import networkx as nx
-from GraphAlgo import GraphAlgo
 import matplotlib.pyplot as plt
-from networkx.readwrite import json_graph
 
 
 class Network:
-
+    """ this class is to read graph from json to Networkx and to draw this graph.  """
     def __init__(self, filename: str):
         self.G = nx.DiGraph()
         try:
             with open(filename, "r") as file:
                 d = json.load(file)
-                # self.G.add_nodes_from([i["id"] for i in d['Nodes']])
                 for i in d['Nodes']:
                     if "pos" not in i:
                         x = None
