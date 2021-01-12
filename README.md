@@ -59,6 +59,8 @@ You can read all about the functions in [here](https://github.com/ortrsa/Ex3/wik
 # How it's work..
 After initing the graph, the fun part begins,  
 In GraphAlgo we implement advenced functhion with some familiar algorithms like BFS, and dijkstra's.  
+
+
 `shorest_path()` - use [Dijkstra's Algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) to find the shortest path In the most efficient way.  
 **Dijkstra's**  
 
