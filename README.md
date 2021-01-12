@@ -76,7 +76,8 @@ we abale to make this lists using [BFS](https://en.wikipedia.org/wiki/Breadth-fi
 
 `plot_graph()` - use [matplotlib](https://matplotlib.org/gallery/index.html) library to drow the graph.  
 
-**A5 graph from data folder**
+**A5 graph from data folder**  
+
 ![Alt Text](https://github.com/ortrsa/Ex3/blob/master/img/A5_graph.png)
 
 # Links:
