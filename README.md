@@ -14,9 +14,8 @@
   
 **part3:** compare runing time and correctness between this project, [Ex2](https://github.com/ortrsa/ex2)  and [networkx](https://github.com/networkx/networkx).  
 
-  - To see time compareition on circal graphs click **[here](https://github.com/ortrsa/ex2)**.
-  - To see time compareition on random graphs click **[here](https://github.com/ortrsa/ex2)**.
-  - For correctness report outputs click **[here](https://github.com/ortrsa/ex2)**
+  - To see time compareition on circal graphs click **[here](https://github.com/ortrsa/Ex3/wiki/Time-comparison_-new)**.
+  - For correctness report outputs click **[here](https://github.com/ortrsa/Ex3/wiki/circle-graph-time-comparison-and-correctness-check)**
   - *(you can find the correctness file in the src folder feel free to verified this output)*
 
   
