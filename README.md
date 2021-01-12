@@ -2,19 +2,19 @@
 
 ## Overview 
 - This project is an implementation of data structures and algorithms on directional weighted graph in python.    
-- It is converthion from Ex2 that was made at java, you can find more abut Ex2 in [Here](https://github.com/ortrsa/ex2).
-- This is a text base program however you can still drow the graph with `plot_graph()` method. 
-- This project was build from 3 parts:    
+- It is converthion from Ex2 that was made in java, you can find more about Ex2 in [Here](https://github.com/ortrsa/ex2).
+- This is a text base program however you can still draw the graph with `plot_graph()` method. 
+- This project was built from 3 parts:    
 
-**part1:** implement basic directional weighted graph class `DiGraph` that contains simpale functions on graph.
+**part1:** implement basic directional weighted graph class `DiGraph` that contains simple functions on graph.
 
-**part2:** implement `GraphAlgo` class, that contains more advanced functions on graph.      
+**part2:** implement `GraphAlgo` class that contains more advanced functions on graph.      
 
 *(you can read all about the functions in [here](https://github.com/ortrsa/Ex3/wiki/Functions-explanation).)*
   
-**part3:** compare runing time and correctness between this project, [Ex2](https://github.com/ortrsa/ex2)  and [networkx](https://github.com/networkx/networkx).  
+**part3:** compare running time and correctness between this project, [Ex2](https://github.com/ortrsa/ex2)  and [networkx](https://github.com/networkx/networkx).  
 
-  - To see time compareition on circal graphs click **[here](https://github.com/ortrsa/Ex3/wiki/Time-comparison_-new)**.
+  - To see time compareition on circle graphs click **[here](https://github.com/ortrsa/Ex3/wiki/Time-comparison_-new)**.
   - For correctness report outputs click **[here](https://github.com/ortrsa/Ex3/wiki/circle-graph-time-comparison-and-correctness-check)**
   - *(you can find the correctness file in the src folder feel free to verified this output)*
 
@@ -57,8 +57,8 @@ You can read all about the functions in [here](https://github.com/ortrsa/Ex3/wik
 
 
 # How it's work..
-After initializing the graph, the fun part begins,  
-In GraphAlgo we implement advenced functhion with some familiar algorithms like BFS, and dijkstra's.  
+After initializing the graph, the fun part begins.  
+In GraphAlgo we implement advanced functions with some familiar algorithms like BFS, and dijkstra's.  
 
 
 `shorest_path()` - use [Dijkstra's Algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) to find the shortest path In the most efficient way.  
@@ -67,8 +67,8 @@ In GraphAlgo we implement advenced functhion with some familiar algorithms like 
 ![Alt Text](https://github.com/ortrsa/Ex3/blob/master/img/dWtprX5.gif)  
 
 
-`connected_component()` - make 2 list, list 1 contain all the nodes that you can get *from* the first node, and list 2 contain all the nodes that can get *to* the first node, and take the intersection between list 1 and 2.  
-we abale to make this lists using [BFS](https://en.wikipedia.org/wiki/Breadth-first_search).  
+`connected_component()` - make 2 lists, list 1 contain all the nodes that you can get *from* the first node, and list 2 contain all the nodes that can get *to* the first node, and take the intersection between list 1 and 2.  
+We are able to make these lists using [BFS](https://en.wikipedia.org/wiki/Breadth-first_search).  
 **BFS**  
 
 ![Alt Text](https://github.com/ortrsa/Ex3/blob/master/img/KcsN.gif)  
@@ -86,14 +86,14 @@ we abale to make this lists using [BFS](https://en.wikipedia.org/wiki/Breadth-fi
 - [Dijkstra's Algorithm - Wikipedia](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
 - [BFS - Wikipedia](https://en.wikipedia.org/wiki/Breadth-first_search)
 - [Directed_graph - Wikipedia](https://en.wikipedia.org/wiki/Directed_graph)
-- [correctnes file output - Wiki](https://github.com/ortrsa/Ex3/wiki/Time-comparison_-new)
+- [correctness file output - Wiki](https://github.com/ortrsa/Ex3/wiki/Time-comparison_-new)
 - [Ex2](https://github.com/ortrsa/ex2)
 - [Functions - Wiki](https://github.com/ortrsa/Ex3/wiki/Functions-explanation)
 - *(you can see the structure of the project in this [WikiPage](https://github.com/ortrsa/Ex3/wiki/Inherent-diagram).)*
 
 # About:
 This project is part of oop course of Ariel university and made for study purposes.  
-This project made by Or Trabelsi and Nadav Epstein, for more information please contact me, email - ortrsa@gmail.com.
+This project was made by Or Trabelsi and Nadav Epstein, for more information please contact me, email - ortrsa@gmail.com.
 
 
 
