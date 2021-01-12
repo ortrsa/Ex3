@@ -57,7 +57,7 @@ You can read all about the functions in [here](https://github.com/ortrsa/Ex3/wik
 
 
 # How it's work..
-After initing the graph, the fun part begins,  
+After initializing the graph, the fun part begins,  
 In GraphAlgo we implement advenced functhion with some familiar algorithms like BFS, and dijkstra's.  
 
 
@@ -84,6 +84,7 @@ we abale to make this lists using [BFS](https://en.wikipedia.org/wiki/Breadth-fi
 
 # Links:
 - [Dijkstra's Algorithm - Wikipedia](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+- [BFS - Wikipedia](https://en.wikipedia.org/wiki/Breadth-first_search)
 - [Directed_graph - Wikipedia](https://en.wikipedia.org/wiki/Directed_graph)
 - [correctnes file output - Wiki](https://github.com/ortrsa/Ex2/wiki/result)
 - [Ex2](https://github.com/ortrsa/ex2)
