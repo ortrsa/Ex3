@@ -59,12 +59,19 @@ You can read all about the functions in [here](https://github.com/ortrsa/Ex3/wik
 # How it's work..
 After initing the graph, the fun part begins,  
 In GraphAlgo we implement advenced functhion with some familiar algorithms like BFS, and dijkstra's.  
-`shorest_path()` - use [Dijkstra's Algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) to find the shortest path In the most efficient way.
+`shorest_path()` - use [Dijkstra's Algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) to find the shortest path In the most efficient way.  
+**Dijkstra's**
 ![Alt Text](https://github.com/ortrsa/Ex3/blob/master/img/dWtprX5.gif)  
 
+`connected_component()` - make 2 list, list 1 contain all the nodes that you can get *from* the first node, and list 2 contain all the nodes that can get *to* the first node, and take the intersection between list 1 and 2.  
+we abale to make this lists using [BFS](https://en.wikipedia.org/wiki/Breadth-first_search).  
+**BFS**  
+![Alt Text](https://github.com/ortrsa/Ex3/blob/master/img/KcsN.gif)  
 
-              
 
+`plot_graph()` - use [matplotlib](https://matplotlib.org/gallery/index.html) library to drow the graph.
+**A5 graph from data folder**
+![Alt Text](https://github.com/ortrsa/Ex3/blob/master/img/A5_graph.png)
 
 # Links:
 - [Dijkstra's Algorithm - Wikipedia](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
