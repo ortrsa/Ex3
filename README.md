@@ -68,10 +68,14 @@ In GraphAlgo we implement advenced functhion with some familiar algorithms like 
 `connected_component()` - make 2 list, list 1 contain all the nodes that you can get *from* the first node, and list 2 contain all the nodes that can get *to* the first node, and take the intersection between list 1 and 2.  
 we abale to make this lists using [BFS](https://en.wikipedia.org/wiki/Breadth-first_search).  
 **BFS**  
+
 ![Alt Text](https://github.com/ortrsa/Ex3/blob/master/img/KcsN.gif)  
+  
+  
 
 
-`plot_graph()` - use [matplotlib](https://matplotlib.org/gallery/index.html) library to drow the graph.
+`plot_graph()` - use [matplotlib](https://matplotlib.org/gallery/index.html) library to drow the graph.  
+
 **A5 graph from data folder**
 ![Alt Text](https://github.com/ortrsa/Ex3/blob/master/img/A5_graph.png)
 
