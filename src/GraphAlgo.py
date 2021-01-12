@@ -116,10 +116,10 @@ class GraphAlgo(GraphAlgoInterface):
             return math.inf, path
 
         pointernode = self.G.graph.get(id2)
-        path.append(pointernode)
+        path.append(pointernode.id)
         while pointernode.id is not id1:
             pointernode = nodePar.get(pointernode.id)
-            path.append(pointernode)
+            path.append(pointernode.id)
         path.reverse()
         res = self.G.graph.get(id2).Weight
         self.reset_w()

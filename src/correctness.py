@@ -52,9 +52,9 @@ if __name__ == '__main__':
         a3.append(my_time_e - my_time_s)
 
         my_time_s = time.time()
-        ccsnx = [i for i in nx.strongly_connected_components(netx.G)]
+        ccsnx = nx.strongly_connected_components(netx.G)
         my_time_e = time.time()
-        print("nx,  len of connected components", len(ccsnx), " time: ", my_time_e - my_time_s)
+        print("nx,  len of connected components", ccsnx, " time: ", my_time_e - my_time_s)
         a4.append(my_time_e - my_time_s)
 
         print("--", "shortest path()", "--")
@@ -67,7 +67,7 @@ if __name__ == '__main__':
         my_time_s = time.time()
         shortnx = nx.dijkstra_path(netx.G, 1, 2)
         my_time_e = time.time()
-        print("nx,  shortest path ", short, " time: ", my_time_e - my_time_s)
+        print("nx,  shortest path ", shortnx, " time: ", my_time_e - my_time_s)
         a6.append(my_time_e - my_time_s)
         print()
 
