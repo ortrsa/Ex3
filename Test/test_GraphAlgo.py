@@ -59,8 +59,7 @@ class TestGraphAlgo(TestCase):
         Gr = GraphAlgo(graph)
         (dis2, testi) = Gr.shortest_path(1, 0)
         self.assertEqual(math.inf, dis2, "there isnt a path between 1 to 0 so should be inf")
-        with self.assertRaises(ValueError):
-            Gr.shortest_path(13, 14)
+        self.assertEqual((math.inf, []),Gr.shortest_path(13, 14),"no such nodes at the graph")
         (dis3, test_list2) = Gr.shortest_path(2, 5)
         self.assertEqual(4.5, dis3, "shortest dis should be 4.5")
         self.assertEqual(2, test_list2[0], "key of this node should be 2")
@@ -74,8 +73,7 @@ class TestGraphAlgo(TestCase):
             self.assertTrue(test_list[0].__contains__(i))
         test_list1 = Galgo.connected_component(0)
         self.assertEqual(test_list1, test_list[0], "same lists because is connected")
-        with self.assertRaises(ValueError):
-            Galgo.connected_component(100)
+        self.assertEqual([],Galgo.connected_component(100),"there isnt such a node at the graph")
         Gr = GraphAlgo(graph)
         test_list2 = Gr.connected_components()
         self.assertEqual(3, test_list2.__len__(), "should be three lists in that list")

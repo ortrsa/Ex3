@@ -21,19 +21,23 @@ class DiGraph(GraphInterface):
         return self.edgeSize
 
     def get_all_v(self) -> dict:
-        """returns a dictionary of the nodes that are in the graph by key:node key value :NodeData"""
+        """returns a dictionary of the nodes that are in the graph by key:node , value :NodeData"""
         return self.graph
 
     def all_in_edges_of_node(self, id1: int) -> dict:
         """returns a dict of all the nodes that has edges to the wanted node by id1 and the value is the weight of
         the edge """
-        if id1 not in self.ine.keys(): return None
+        if id1 not in self.ine.keys():
+            tmp = {}
+            return tmp
         return self.ine[id1]
 
     def all_out_edges_of_node(self, id1: int) -> dict:
         """returns a dict of all the nodes that the wanted node by id1 has edges to and the value is the weight of
                 the edge """
-        if id1 not in self.oute.keys() : return None
+        if id1 not in self.oute.keys():
+            tmp = {}
+            return tmp
         return self.oute[id1]
 
     def get_mc(self) -> int:
@@ -129,10 +133,12 @@ class DiGraph(GraphInterface):
         if temp3 != temp2:
             return False
         for i in range(temp):
-            flag = self.graph.__contains__(i)
-            if flag:
-                for j in self.all_out_edges_of_node(i):
-                    flag1 = self.oute[i][j] == other.oute[i][j]
-                for k in self.all_in_edges_of_node(i):
-                    flag2 = self.ine[i][k] == other.ine[i][k]
-        return self.v_size() == other.v_size() and flag and flag1 and flag2
+            if not self.graph.__contains__(i):
+                return False
+            for j in self.all_out_edges_of_node(i):
+                if self.oute[i][j] != other.oute[i][j]:
+                    return False
+            for k in self.all_in_edges_of_node(i):
+                if self.ine[i][k] != other.ine[i][k]:
+                    return False
+        return self.v_size() == other.v_size()
