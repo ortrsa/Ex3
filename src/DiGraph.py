@@ -132,7 +132,7 @@ class DiGraph(GraphInterface):
         temp3 = other.edgeSize
         if temp3 != temp2:
             return False
-        for i in range(temp):
+        for i in self.graph.keys():
             if not self.graph.__contains__(i):
                 return False
             for j in self.all_out_edges_of_node(i):
