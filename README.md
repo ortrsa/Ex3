@@ -2,7 +2,7 @@
 
 ## Overview 
 - This project is an implementation of data structures and algorithms on directional weighted graph in python.    
-- It is converthion from Ex2 that was made in java, you can find more about Ex2 in [Here](https://github.com/ortrsa/ex2).
+- It is conversion from Ex2 that was made in java, you can find more about Ex2 in [Here](https://github.com/ortrsa/ex2).
 - This is a text base program however you can still draw the graph with `plot_graph()` method. 
 - This project was built from 3 parts:    
 
