@@ -76,7 +76,7 @@ We are able to make these lists using [BFS](https://en.wikipedia.org/wiki/Breadt
   
 
 
-`plot_graph()` - use [matplotlib](https://matplotlib.org/gallery/index.html) library to drow the graph.  
+`plot_graph()` - use [matplotlib](https://matplotlib.org/gallery/index.html) library to draw the graph.  
 
 **A5 graph from data folder**  
 
