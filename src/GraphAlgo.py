@@ -22,6 +22,7 @@ class GraphAlgo(GraphAlgoInterface):
         """create a graph using a saved text file by using the key words "Nodes" and "Edges"
         then split the string by , to get the X Y Z and creating a new node and adding it to the graph
          connects the nodes by Edges and w for weight src and dest"""
+        self.G = DiGraph()
         try:
             with open(file_name, "r") as file:
                 x = json.load(file)
