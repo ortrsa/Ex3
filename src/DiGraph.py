@@ -96,10 +96,12 @@ class DiGraph(GraphInterface):
 
         a = set(self.all_in_edges_of_node(node_id).keys())
         for i in a:
-            self.remove_edge(i, node_id)
+            if self.remove_edge(i, node_id):
+                self.MC -= 1
         b = set(self.all_out_edges_of_node(node_id).keys())
         for i in b:
-            self.remove_edge(node_id, i)
+            if self.remove_edge(node_id, i):
+                self.MC -= 1
         del self.oute[node_id]
         del self.ine[node_id]
         del self.graph[node_id]
